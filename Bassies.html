@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="styles.css"></script>
+  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
@@ -17,28 +17,14 @@
         <img class="logo" src="images/logo.png" alt="">
         <h1>Bassie's</h1>
       </div>
-      <div>
-        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#quienes-somos">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#ayuda">Productos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#fq">Categorias</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#fq">Sobre Nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#fq">Únete</a>
-          </li>
-          <li class="nav-item li-button">
-           <button type="button" class="btn-propio-1" data-bs-toggle=""
-              data-bs-target="#modalLogin">Login</button>
-          </li>
-    </div>
+      <div class="vinculos">
+        <a class="nav-link active" aria-current="page" href="#quienes-somos">Inicio</a>
+        <a class="nav-link" href="#ayuda">Productos</a>
+        <a class="nav-link" href="#fq">Categorias</a>
+        <a class="nav-link" href="#fq">Sobre Nosotros</a>
+        <a class="nav-link" href="#fq">Únete</a>
+        <button type="button" class="btn-propio-1" data-bs-toggle="" data-bs-target="#modalLogin">Login</button>
+      </div>    
       <form method="get" action="/buscar">
         <input type="text" name="q" placeholder="Buscar" id="buscador">
       </form>

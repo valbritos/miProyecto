@@ -1,18 +1,19 @@
 
-/* buscador */
-body {
-  font-family: 'Sedgwick Ave Display', cursive;
-  background-color: #A3ABB2;
-}
 
 /* HEADER */
 
 .header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex; /* establecemos el contenedor como flexible */
+  justify-content: space-between; /* distribuimos los elementos de manera equidistante */
+  align-items: center; /* centramos los elementos verticalmente */
   font-family: 'IM Fell DW Pica', serif;
   background-color: #A3ABB2;
+}
+
+.vinculos {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
 }
 
 .logo {
@@ -28,6 +29,8 @@ body {
 .logo h1 {
   margin: 0;
 }
+
+/* buscador */
 
 form {
     display: flex;
