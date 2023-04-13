@@ -8,7 +8,8 @@
   align-items: center; /* centramos los elementos verticalmente */
   font-family: 'IM Fell DW Pica', serif;
   background-color: #A3ABB2;
-  
+  padding: 1rem; /*agregue padding*/
+  justify-content: center;
 }
 
 .vinculos {
@@ -25,71 +26,33 @@
 
 .logo {
   display: flex;
-  align-items: center;
+  justify-content: center; /*puse el logo y el nombre en el medio*/
 }
 
 .logo img {
-  width: 50px; /* ajusta el tamaño de la imagen según tus necesidades */
+  width: 80px; /* ajusta el tamaño de la imagen según tus necesidades */
   margin-right: 10px; /* agrega un pequeño margen entre la imagen y el título */
 }
 
 .logo h1 {
   margin: 0;
+  font-size: 70px;
 }
 
-/* buscador */
+.parte-superior {
+  display: flex;
+  justify-content: left !important; /*puse el buscar a la izquierda*/
+}
 
-form {
-    display: flex;
-    align-items: center;
-    background-color: #A3ABB2; /* Cambiamos el color de fondo */
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
-  input[type="text"] {
-    padding: 10px;
-    border: none;
-    flex: 1;
-    font-size: 16px;
-  }
-  
-  input[type="text"]:focus {
-    outline: none;
-  }
-  
-  /* Eliminamos el estilo del botÃ³n */
-  
-  #buscador::-webkit-input-placeholder {
-    color: #777;
-  }
-  
-  #buscador:-moz-placeholder {
-    color: #777;
-    opacity: 1;
-  }
-  
-  #buscador::-moz-placeholder {
-    color: #777;
-    opacity: 1;
-  }
-  
-  #buscador:-ms-input-placeholder {
-    color: #777;
-  }
-  
-  #buscador:focus::-webkit-input-placeholder {
-    color: transparent;
-  }
-  
-  #buscador:focus:-moz-placeholder {
-    color: transparent;
-  }
-  
-  #buscador:focus::-moz-placeholder {
-    color: transparent;
-  }
-  
-  #buscador:focus:-ms-input-placeholder {
-    color: transparent;
-  }
+.logearse {
+  display: flex;
+  justify-content: end;/*puse el login a la derecha*/
+}
+
+.btn-propio-1 { /*le di forma y color al boton de login*/
+  color: black;
+  font-weight: bold;
+  border: 0;
+  border-radius: 36px;
+  font-size: 12px;
+}
