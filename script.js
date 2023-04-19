@@ -1,9 +1,12 @@
+
+
 document.getElementById("btnInicioSesion").addEventListener("click", function() {
     window.location.href = "InicioSesion.html";
   });
 
 
 /*  CREAR CUENTA  */
+if (window.location.pathname.includes("Unete.html")) {
 
 
 const constraints = {
@@ -16,111 +19,90 @@ const constraints = {
     },
     password: {
       presence: true,
-      length: {
-        minimum: 6
-      }
     },
-    confirmPassword: {
-      presence: true,
-      equality: {
-        attribute: "password",
-        message: "^Las contraseñas no coinciden"
-      }
-    }
   };
 
-  const form = document.getElementById("registroForm");
-
-  form.addEventListener("submit", function (event) {
-    const errors = validate(form, constraints);
-
-    if (errors) {
-      event.preventDefault();
-      const errorList = document.getElementById("errorList");
-      errorList.innerHTML = "";
-      Object.keys(errors).forEach(function (key) {
-        errors[key].forEach(function (error) {
-          const li = document.createElement("li");
-          li.textContent = `${key} ${error}`;
-          errorList.appendChild(li);
-        });
-      });
-    }
-  });
-
-
-  $("#formulario").submit(function(e) {
-    e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+  const formulario = document.querySelector('#formulario');
+  formulario.addEventListener('submit', (e) => {
+    e.preventDefault();
   
-    // Obtener los datos del formulario
-    var datos = {
-      nombre: $("#nombre").val(),
-      correo: $("#correo").val(),
-      password: $("#password").val(),
-      confirm_password: $("#confirm_password").val()
+    const datos = {
+      nombre: document.querySelector('#nombre').value,
+      correo: document.querySelector('#correo').value,
+      password: document.querySelector('#password').value
     };
   
-    // Enviar los datos mediante una petición HTTP POST
-    $.ajax({
-      type: "POST",
-      url: "/api/crear-cuenta",
-      data: datos,
-      success: function(response) {
-        // La petición fue exitosa
-        console.log(response);
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
       },
-      error: function(error) {
-        // Hubo un error al enviar la petición
-        console.log(error);
-      }
+      body: JSON.stringify(datos)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error(error);
     });
   });
+  
   
 
 
 
 
 /*  INICIO DE SESION  */
-
+} else if (window.location.pathname.includes("InicioSesion.html")) /*verifica que estes en el html correcto*/{
 $(function() {
-    // Validación del formulario con Validate.js
-    const constraints = {
-      email: {
-        presence: true,
-        email: true
-      },
-      password: {
-        presence: true,
-        length: {
-          minimum: 6,
-          message: "La contraseña debe tener al menos 6 caracteres"
-        }
+  // Validación del formulario con Validate.js
+  const constraints = {
+    email: {
+      presence: true,
+      email: true
+    },
+    password: {
+      presence: true,
+      length: {
+        minimum: 6,
+        message: "La contraseña debe tener al menos 6 caracteres"
       }
-    };
+    }
+  };
 
-    const form = document.getElementById('loginForm');
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const errors = validate(form, constraints);
-      if (errors) {
-        console.log(errors);
-      } else {
-        console.log('Formulario válido');
-        // Envío del formulario con jQuery
-        $.ajax({
-          url: '/login',
-          type: 'POST',
-          data: $(form).serialize(),
-          success: function(data) {
+  const form = document.getElementById('loginForm');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const errors = validate(form, constraints);
+    if (errors) {
+      console.log(errors);
+    } else {
+      console.log('Formulario válido');
+      const email = form.email.value;
+      const password = form.password.value;
+      // Hacer una solicitud GET a la API
+      fetch(`               `)
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
             console.log('Inicio de sesión exitoso');
-            // Redirigir a la página de inicio
-            window.location.href = '/inicio';
-          },
-          error: function(xhr, status, error) {
+            window.location.href = '/Bassies.html';
+          } else {
             console.log('Error al iniciar sesión');
-            console.log(xhr.responseText);
+            console.log(data.message);
           }
+        })
+        .catch(error => {
+          console.log('Error al iniciar sesión');
+          console.log(error);
         });
-      }
-    });
+    }
   });
+  
+
+});
+
+
+
+ }
