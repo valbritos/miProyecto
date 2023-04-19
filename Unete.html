@@ -32,7 +32,6 @@
           <section class="logearse">
             <button type="button" class="btn-propio-1" id="btnInicioSesion">Iniciar Sesión</button>
 
-
           </section>
         </div>
       </div>
@@ -51,68 +50,32 @@
 </header>
 
 
-
-
 <body>
-  Bienvenidos a la pagina
-  ¡Envianos tu diseño y nosotros lo hacemos realidad!
-
-  <div class="container">
-    <div class="item">
-      <img src="images/Producto1.png" alt="">
-      <h3>PRODUCTO1</h3>
-      <p>$50.00</p>
-      <div class="amarillo">Comprar</div>
+    <div class="container">
+      <form id="registroForm" class="registro-form" action="#" method="post">
+        <h2>Únete a nuestra comunidad</h2>
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="correo">Correo electrónico:</label>
+          <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingresa tu correo electrónico" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña:</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirmar contraseña:</label>
+          <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirma tu contraseña" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+      </form>
     </div>
-
-    <div class="item">
-      <img src="images/Producto2.png" alt="">
-      <h3>PRODUCTO2</h3>
-      <p>$50.00</p>
-      <div class="amarillo">Comprar</div>
-    </div>
-
-    <div class="item">
-      <img src="images/Producto3.png" alt="">
-      <h3>PRODUCTO3</h3>
-      <p>$50.00</p>
-      <div class="amarillo">Comprar</div>
-    </div>
-
-    <div class="item">
-      <img src="images/Producto4.png" alt="">
-      <h3>PRODUCTO4</h3>
-      <p>$50.00</p>
-      <div class="amarillo">Comprar</div>
-    </div>
-
-    <div class="item">
-      <img src="images/Producto5.png" alt="">
-      <h3>PRODUCTO5</h3>
-      <p>$50.00</p>
-      <div class="amarillo">Comprar</div>
-    </div>
-
-    <div class="item">
-      <img src="images/Producto6.png" alt="">
-      <h3>PRODUCTO6</h3>
-      <p>$50.00</p>
-      <div class="amarillo">Comprar</div>
-    </div>
-
-    <div class="item">
-      <img src="images/Producto7.png" alt="">
-      <h3>PRODUCTO7</h3>
-      <p>$50.00</p>
-      <div class="amarillo">Comprar</div>
-    </div>
-
-  </div>
-</body>
-
+</body>  
+  
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
 <script src="script.js"></script>
-
-</html>
