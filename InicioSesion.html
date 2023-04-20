@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
-
-  <title>Tienda de Ropa</title>
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+  <title>Bassie's</title>
 </head>
 
 <header>
@@ -31,7 +31,6 @@
         <div>
           <section class="logearse">
             <button type="button" class="btn-propio-1" id="btnInicioSesion">Iniciar Sesión</button>
-
           </section>
         </div>
       </div>
@@ -51,33 +50,34 @@
 
 
 <body>
-    <div class="container">
-      <div class="row justify-content-center mt-5">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-header">
-              Iniciar Sesión
-            </div>
-            <div class="card-body">
-              <form id="loginForm" method="POST">
-                <div class="form-group">
-                  <label for="email">Correo electrónico</label>
-                  <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo electrónico">
-                </div>
-                <div class="form-group">
-                  <label for="password">Contraseña</label>
-                  <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su contraseña">
-                </div>
-                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-              </form>
-            </div>
+  <div class="container" style="padding: 1.5rem;">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+        <div class="card" style="border: 3px solid #A3ABB2; border-radius: 36px; padding: 0.5rem;">
+          <div class="card-header">
+            <h2>Iniciar Sesión</h2>
+          </div>
+          <div class="card-body">
+            <form id="loginForm" method="POST">
+              <div class="form-group">
+                <label for="email" style="font-size: 26px;">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo electrónico">
+              </div>
+              <div class="form-group">
+                <label for="password" style="font-size: 26px;">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su contraseña">
+              </div>
+              <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
-  
+  </div>
+</body>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
 <script src="script.js"></script>
+
 </html>

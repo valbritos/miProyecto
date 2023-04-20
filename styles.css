@@ -1,7 +1,4 @@
-
-
 /* HEADER */
-
   .parte-superior {
     float: left; /* Alinea el buscador a la izquierda */
     width: 50%; /* Divide la sección en dos columnas iguales */
@@ -17,121 +14,126 @@
     width: 100%; /* Ajusta el ancho del buscador para que ocupe toda su columna */
   }
 
-.header {
-  display: flex; /* establecemos el contenedor como flexible */
-  justify-content: space-between; /* distribuimos los elementos de manera equidistante */
-  align-items: center; /* centramos los elementos verticalmente */
-  font-family: 'IM Fell DW Pica', serif;
-  background-color: #A3ABB2;
-  padding: 1rem; /*agregue padding*/
-  justify-content: center;
-}
+  .header {
+    display: flex; /* establecemos el contenedor como flexible */
+    justify-content: space-between; /* distribuimos los elementos de manera equidistante */
+    align-items: center; /* centramos los elementos verticalmente */
+    font-family: 'IM Fell DW Pica', serif;
+    background-color: #A3ABB2;
+    padding: 1rem; /*agregue padding*/
+    justify-content: center;
+  }
 
-.vinculos {
-  display: flex;
-  justify-content: center;
-  font-size: 18px;
-  margin-top: 20px; /* Agregamos un margen superior para separar el div de la parte superior del sitio */
-}
+  .vinculos {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    margin-top: 20px; /* Agregamos un margen superior para separar el div de la parte superior del sitio */
+  }
 
-.vinculos a {
-  margin: 0 10px; /* Agregamos un margen horizontal de 10px entre cada elemento */
-}
+  .vinculos a {
+    margin: 0 10px; /* Agregamos un margen horizontal de 10px entre cada elemento */
+  }
 
 
-.logo {
-  display: flex;
-  justify-content: center; /*puse el logo y el nombre en el medio*/
-}
+  .logo {
+    display: flex;
+    justify-content: center; /*puse el logo y el nombre en el medio*/
+  }
 
-.logo img {
-  width: 80px; /* ajusta el tamaño de la imagen según tus necesidades */
-  margin-right: 10px; /* agrega un pequeño margen entre la imagen y el título */
-}
+  .logo img {
+    width: 60px; /* ajusta el tamaño de la imagen según tus necesidades */
+    margin-right: 10px; /* agrega un pequeño margen entre la imagen y el título */
+  }
 
-.logo h1 {
-  margin: 0;
-  font-size: 70px;
-}
+  .logo h1 {
+    margin: 0;
+    font-size: 50px;
+  }
 
-.parte-superior {
-  display: flex;
-  justify-content: left !important; /*puse el buscar a la izquierda*/
-}
-
-.logearse {
-  display: flex;
-  justify-content: end;/*puse el login a la derecha*/
-}
-
-.btn-propio-1 { /*le di forma y color al boton de login*/
-  color: black;
-  font-weight: bold;
-  border: 0;
-  border-radius: 36px;
-  font-size: 12px;
+  .btn-propio-1 { /*le di forma y color al boton de login*/
+    color: black;
+    font-weight: bold;
+    border: 0;
+    border-radius: 36px;
+    font-size: 12px;
 }
 
 /* PRODUCTOS */
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    border: 3px solid #A3ABB2;
+    width: 300px;
+    height: 300px;
+  }
+
+  .item img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  .item h3 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .item p {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .amarillo {
+    background-color: #F5A623;
+    border-radius: 5px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .amarillo:hover {
+    background-color: #F8CA81;
+    color: #333333;
+    text-decoration: none;
 }
 
-.item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px;
-  padding: 10px;
-  border: 3px solid #A3ABB2;
-  width: 300px;
-  height: 300px;
-}
+/* CONTENIDO GENERAL */
+  body {
+    background-color: white;
+    font-size: larger;
+  }
 
-.item img {
-  max-width: 100%;
-  max-height: 200px;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.item h3 {
-  font-size: 20px;
-  margin: 0;
-}
-
-.item p {
-  font-size: 16px;
-  margin: 0;
-}
-
-body {
-  background-color: #F8F8F8;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.4;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.amarillo {
-  background-color: #F5A623;
-  border-radius: 5px;
-  color: #FFFFFF;
-  display: inline-block;
-  font-weight: bold;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  transition: background-color 0.3s ease-in-out;
-}
-.amarillo:hover {
-  background-color: #F8CA81;
-  color: #333333;
-  text-decoration: none;
-}
+  .btn-primary { /*le di forma al boton de iniciar sesion y registrase*/
+    color: black;
+    border: 0;
+    border-radius: 25px;
+    font-size: 20px;
+    background-color: #A3ABB2;
+    padding: 5px;
+  }
