@@ -1,0 +1,12 @@
+{
+    "usuarios": [
+        {
+            "nombre": "Pablo Basile",
+            "correo": "pablo.basile32@gmail.com",
+            "contraseña": "contraseña123"
+        }
+        
+    ]
+
+
+}

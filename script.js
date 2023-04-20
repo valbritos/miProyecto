@@ -1,93 +1,71 @@
-document.getElementById("btnInicioSesion").addEventListener("click", function() {
+document.getElementById("btnInicioSesion").addEventListener("click", function () {
   window.location.href = "InicioSesion.html";
 });
 
-/*  CREAR CUENTA  */
+/*  Registrarse  */
 if (window.location.pathname.includes("Unete.html")) {
 
+  window.onload = function() {
 
-const constraints = {
-  nombre: {
-    presence: true
-  },
-  correo: {
-    presence: true,
-    email: true
-  },
-  password: {
-    presence: true,
-  },
-};
-
-const formulario = document.querySelector('#formulario');
-formulario.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const datos = {
-    nombre: document.querySelector('#nombre').value,
-    correo: document.querySelector('#correo').value,
-    password: document.querySelector('#password').value
-  };
-  fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(datos)
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error(error);
-  });
-});
-
-/*  INICIO DE SESION  */
-} else if (window.location.pathname.includes("InicioSesion.html")) /*verifica que estes en el html correcto*/{
-  $(function() {
-    // Validación del formulario con Validate.js
-    const constraints = {
-      email: {
-        presence: true,
-        email: true
-      },
-      password: {
-        presence: true,
-        length: {
-          minimum: 6,
-          message: "La contraseña debe tener al menos 6 caracteres"
-        }
-      }
+    var usuario = {
+      nombre: '',
+      correo: '',
+      contraseña: ''
     };
-
-    const form = document.getElementById('loginForm');
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const errors = validate(form, constraints);
-      if (errors) {
-        console.log(errors);
-      } else {
-        console.log('Formulario válido');
-        const email = form.email.value;
-        const password = form.password.value;
-        // Hacer una solicitud GET a la API
-      fetch(`               `)
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            console.log('Inicio de sesión exitoso');
-            window.location.href = '/Bassies.html';
-          } else {
-            console.log('Error al iniciar sesión');
-            console.log(data.message);
-          }
-        })
-        .catch(error => {
-          console.log('Error al iniciar sesión');
-          console.log(error);
-        });
-      }
+  
+    function crearUsuario() {
+      fetch("http://localhost:3000/usuarios", {
+        method: "POST",
+        body: JSON.stringify(usuario),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.log(error));
+    }
+  
+    $(document).ready(function() {
+      $("#registroForm").submit(function(event) {
+        event.preventDefault();
+  
+        usuario.nombre = $("#nombre").val();
+        usuario.correo = $("#correo").val();
+        usuario.contraseña = $("#password").val();
+        console.log(usuario);
+  
+        crearUsuario();
+      });
     });
+  }
+  
+  
+
+  /*  INICIO DE SESION  */
+} else if (window.location.pathname.includes("InicioSesion.html")) /*verifica que estes en el html correcto*/ {
+
+  let usuarios;
+
+  fetch('http://localhost:3000/usuarios')
+    .then(response => response.json())
+    .then(data => {
+      usuarios = data;
+    })
+    .catch(error => console.error(error));
+
+  document.getElementById('loginForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    const usuarioEncontrado = usuarios.find(usuario => usuario.correo === email && usuario.contraseña === password);
+
+    if (usuarioEncontrado) {
+      console.log('Iniciando sesión...');
+    } else {
+      console.error('El correo electrónico o la contraseña son incorrectos');
+    }
   });
-}
+
+
+};
