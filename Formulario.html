@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
+  <title>Bassie's</title>
+</head>
+
+<header>
+  <nav class="header navbar navbar-expand-lg align-items-center">
+    <div class="container-fluid d-flex justify-content-between">
+      <div class="logo">
+        <img class="logo" src="images/logo.png" alt="">
+        <h1>Bassie's </h1>
+      </div>
+      <div>
+        <div>
+          <section class="parte-superior">
+            <form method="get" action="/buscar">
+              <input type="text" name="q" placeholder="Buscar" id="buscador">
+            </form>
+          </section>
+        </div>
+        <div>
+          <section class="logearse">
+            <button type="button" class="btn-propio-1" id="btnInicioSesion" href="InicioSesion.html">Iniciar Sesión</button>
+          </section>
+        </div>
+      </div>
+      <br>
+      <div class="vinculos">
+        <a class="nav-link active" aria-current="page" href="Bassies.html">Inicio</a>
+        |
+        <a class="nav-link" href="SN.html">Sobre Nosotros</a>
+        |
+        <a class="nav-link" href="Formulario.html">Contactanos</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<body>
+  <div class="container-form" style="padding: 1.5rem;">
+    <form id="registroForm formulario1" class="registro-form formulario1" method="post"
+      style="border: 3px solid #A3ABB2; border-radius: 36px; padding: 0.5rem;">
+      <h2>Contactate con nosotros</h2>
+      <div class="form-group">
+        <label for="nombre" style="font-size: 20px;">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="correo" style="font-size: 20px;">Correo electrónico:</label>
+        <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingresa tu correo electrónico"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="password" style="font-size: 20px;">Contraseña:</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="tel" style="font-size: 20px;">Teléfono:</label>
+        <input type="number" class="form-control" id="tel" name="tel" placeholder="Ingresa tu número de teléfono"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="direction" style="font-size: 20px;">Dirección:</label>
+        <input type="text" class="form-control" id="direction" name="direction" placeholder="Ingresa tu dirección" required>
+      </div>
+      <div class="form-group" style="text-align: center !important;">
+        <label for="comment" style="font-size: 20px;">¿Quieres agregar algún comentario?</label>
+        <br>
+        <textarea class="form-control" name="comentario" placeholder="Escribe aquí tu comentario"></textarea>
+      </div>
+      <div class="btn-enviar">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+      </form>
+    </div>
+</body>  
+  
+
+</html>
