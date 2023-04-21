@@ -48,24 +48,26 @@
 
 
 <body>
-  <div class="container" style="padding: 1.5rem;">
+  <div class="container-form" style="padding: 1.5rem;">
     <div class="row justify-content-center mt-5">
       <div class="col-md-6">
-        <div class="card" style="border: 3px solid #A3ABB2; border-radius: 36px; padding: 0.5rem;">
-          <div class="card-header">
+        <div class="card" style="border: 3px solid #A3ABB2; border-radius: 36px; padding: 1rem;">
+          <div class="card-header" style="text-align: center !important;">
             <h2>Iniciar Sesión</h2>
           </div>
           <div class="card-body">
             <form id="loginForm" method="POST">
               <div class="form-group formulario">
-                <label for="email" style="font-size: 26px;">Correo electrónico</label>
+                <label for="email" style="font-size: 20px;">Correo electrónico</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo electrónico">
               </div>
               <div class="form-group">
-                <label for="password" style="font-size: 26px;">Contraseña</label>
+                <label for="password" style="font-size: 20px;">Contraseña</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su contraseña">
               </div>
-              <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+              <div class="btn-enviar">
+                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+              </div>
             </form>
           </div>
         </div>
