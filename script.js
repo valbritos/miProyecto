@@ -121,7 +121,7 @@ if (window.location.pathname.includes("Formulario.html")) {
             doc.text('- Producto: ' + producto, 20, 170);
           }
           if (comentario === "No ha dejado un comentario") {
-            doc.text("El usuario no añadio detalles", 20, 180)
+            doc.text("- El usuario no añadio detalles", 20, 180)
           } else {
             doc.text('- Ademas nos añade que: ', 20, 180)
             for (var i = 0; i < lines.length; i++) {
