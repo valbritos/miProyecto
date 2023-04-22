@@ -2,43 +2,106 @@ document.getElementById("btnInicioSesion").addEventListener("click", function ()
   window.location.href = "InicioSesion.html";
 });
 
-/*  Registrarse  */
-if (window.location.pathname.includes("Unete.html")) {
+/*  Reclamo  */
+if (window.location.pathname.includes("Formulario.html")) {
 
-  window.onload = function() {
+  window.onload = function () {
 
-    var usuario = {
-      nombre: '',
-      correo: '',
-      contraseña: ''
+    var reclamo = document.getElementsByName('reclamo')[0];
+    var producto = document.getElementById('producto');
+
+    reclamo.addEventListener('change', function () {
+      if (reclamo.value == 'si') {
+        producto.style.display = 'block';
+      } else {
+        producto.style.display = 'none';
+      }
+    });
+
+
+
+
+
+    // Define las reglas de validación para cada campo del formulario
+    const constraints = {
+      nombre: {
+        presence: { message: "El nombre es obligatorio" },
+        length: {
+          minimum: 2,
+          message: "El nombre debe tener al menos 2 caracteres",
+        },
+      },
+      correo: {
+        presence: { message: "El correo electrónico es obligatorio" },
+        email: { message: "Ingresa un correo electrónico válido" },
+      },
+      reclamo: { presence: { message: "Selecciona si es un reclamo o no" } },
+      tel: {
+        presence: { message: "El número de teléfono es obligatorio" },
+        numericality: { onlyInteger: true, message: "Ingresa un número válido" },
+      },
+      direction: { presence: { message: "La dirección es obligatoria" } },
     };
-  
-    function crearUsuario() {
-      fetch("http://localhost:3000/usuarios", {
-        method: "POST",
-        body: JSON.stringify(usuario),
-        headers: { "Content-type": "application/json; charset=UTF-8" },
-      })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.log(error));
-    }
-  
-    $(document).ready(function() {
-      $("#registroForm").submit(function(event) {
+
+    $(document).ready(function () {
+      // se define la función que se ejecuta cuando se envía el formulario
+      $("#formulario1").submit(function (event) {
+        // se evita que se recargue la página
         event.preventDefault();
-  
-        usuario.nombre = $("#nombre").val();
-        usuario.correo = $("#correo").val();
-        usuario.contraseña = $("#password").val();
-        console.log(usuario);
-  
-        crearUsuario();
+
+        // se crean variables para guardar los valores de los campos del formulario
+        var nombre = $("#nombre").val();
+
+        var correo = $("#correo").val();
+
+        var reclamo = $("#SioNo").val();
+        if (reclamo === "si") {
+          reclamo = "Nos contacta por un reclamo de un producto";
+        } else {
+          reclamo = "No nos contacta por un reclamo de un producto"
+        }
+
+        var producto = $("#productoEspecifico option:selected").val();
+        if (producto = "") {
+          producto = $("#productoEspecifico option:selected").val();
+        } else {
+          producto = "";
+        }
+
+
+        var tel = $("#tel").val();
+
+        var direccion = $("#direction").val();
+
+        var comentario = $("textarea[name='comentario']").val();
+        if (comentario === "") {
+          comentario = "No ha dejado un comentario";
+        }
+
+        // se crea un objeto que contiene los datos del formulario
+        var datos = {
+          nombre: nombre,
+          correo: correo,
+          Reclamo: reclamo,
+          producto: producto,
+          tel: tel,
+          direccion: direccion,
+          comentario: comentario
+        };
+
+        // se muestra el objeto en la consola
+        console.log(datos);
       });
     });
+
+
+
+
+
+
+
+
   }
-  
-  
 
   /*  INICIO DE SESION  */
 } else if (window.location.pathname.includes("InicioSesion.html")) /*verifica que estes en el html correcto*/ {

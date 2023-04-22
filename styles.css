@@ -178,3 +178,10 @@ textarea {
   justify-content: center;
   text-align: right;
 }
+
+
+select {
+  height: 2rem !important; /* Ajusta el tamaño de los cuadros de selección */
+  width: 13rem !important;
+}
+

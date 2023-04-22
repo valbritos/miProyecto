@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +48,7 @@
 
 <body>
   <div class="container-form" style="padding: 1.5rem;">
-    <form id="registroForm formulario1" class="registro-form formulario1" method="post"
+    <form id="formulario1" class="formulario1"
       style="border: 3px solid #A3ABB2; border-radius: 36px; padding: 0.5rem;">
       <h2>Contactate con nosotros</h2>
       <div class="form-group">
@@ -61,10 +61,28 @@
           required>
       </div>
       <div class="form-group">
-        <label for="password" style="font-size: 20px;">Contraseña:</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña"
-          required>
+        <label for="reclamo" style="font-size: 20px;" id="reclamo">¿Es un reclamo por un producto?</label>
+        <br>
+        <select class="form-control" name="reclamo" id="SioNo">
+          <option value="no">No</option>
+          <option value="si">Sí</option>
+        </select>
       </div>
+      <div class="form-group" style="display:none" id="producto">
+        <label for="productoEspecifico" style="font-size: 20px;">Selecciona el producto:</label>
+        <br>
+        <select class="form-control" name="productoEspecifico">
+          <option value="Remera Stray Kids">Remera Stray Kids</option>
+          <option value="Buzo Twice &quot;Taste of Love&quot;">Buzo Twice "Taste of Love"</option>
+          <option value="Remera BTS &quot;Life goes on&quot;">Remera BTS "Life goes on"</option>
+          <option value="Buzo Kimetsu No Yaiba">Buzo Kimetsu No Yaiba</option>
+          <option value="Buzo Naruto">Buzo Naruto</option>
+          <option value="Buzo Shingeki No Kyojin">Buzo Shingeki No Kyojin</option>
+          <option value="Remera Naruto">Remera Naruto</option>
+          <option value="Remera Kimetsu No Yaiba">Remera Kimetsu No Yaiba</option>
+          <option value="Remera One Piece">Remera One Piece</option>
+        </select>
+      </div>            
       <div class="form-group">
         <label for="tel" style="font-size: 20px;">Teléfono:</label>
         <input type="number" class="form-control" id="tel" name="tel" placeholder="Ingresa tu número de teléfono"
@@ -77,10 +95,10 @@
       <div class="form-group" style="text-align: center !important;">
         <label for="comment" style="font-size: 20px;">¿Quieres agregar algún comentario?</label>
         <br>
-        <textarea class="form-control" name="comentario" placeholder="Escribe aquí tu comentario"></textarea>
+        <textarea type="text" class="form-control" name="comentario" placeholder="Escribe aquí tu comentario"></textarea>
       </div>
       <div class="btn-enviar">
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn-primary" id="enviar">Enviar</button>
       </div>
       </form>
     </div>
@@ -88,3 +106,8 @@
   
 
 </html>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+<script src="script.js"></script>
