@@ -19,10 +19,6 @@ if (window.location.pathname.includes("Formulario.html")) {
     });
 
 
-
-
-
-    // Define las reglas de validación para cada campo del formulario
     const constraints = {
       nombre: {
         presence: { message: "El nombre es obligatorio" },
@@ -39,17 +35,19 @@ if (window.location.pathname.includes("Formulario.html")) {
       tel: {
         presence: { message: "El número de teléfono es obligatorio" },
         numericality: { onlyInteger: true, message: "Ingresa un número válido" },
+        length: {
+          is: 10,
+          message: "El número de teléfono debe tener exactamente 10 caracteres"
+        }
+
       },
       direction: { presence: { message: "La dirección es obligatoria" } },
     };
 
     $(document).ready(function () {
-      // se define la función que se ejecuta cuando se envía el formulario
       $("#formulario1").submit(function (event) {
-        // se evita que se recargue la página
         event.preventDefault();
 
-        // se crean variables para guardar los valores de los campos del formulario
         var nombre = $("#nombre").val();
 
         var correo = $("#correo").val();
@@ -61,13 +59,10 @@ if (window.location.pathname.includes("Formulario.html")) {
           reclamo = "No nos contacta por un reclamo de un producto"
         }
 
-        var producto = $("#productoEspecifico option:selected").val();
-        if (producto = "") {
-          producto = $("#productoEspecifico option:selected").val();
-        } else {
-          producto = "";
+        var producto = "-";
+        if ($("#producto").is(":visible")) {
+          producto = $("select[name=productoEspecifico] option:selected").val();
         }
-
 
         var tel = $("#tel").val();
 
@@ -78,7 +73,6 @@ if (window.location.pathname.includes("Formulario.html")) {
           comentario = "No ha dejado un comentario";
         }
 
-        // se crea un objeto que contiene los datos del formulario
         var datos = {
           nombre: nombre,
           correo: correo,
@@ -89,15 +83,57 @@ if (window.location.pathname.includes("Formulario.html")) {
           comentario: comentario
         };
 
-        // se muestra el objeto en la consola
         console.log(datos);
+
+
+
+        var doc = new jsPDF();
+
+        var lines = doc.splitTextToSize(comentario, 160);
+
+        doc.setFontSize(22);
+        doc.text('Datos del usuario', 20, 20);
+        doc.line(20, 25, 190, 25); // Línea horizontal debajo del título
+
+        doc.setFontSize(16);
+        doc.text('- Nombre: ' + nombre, 20, 40);
+        doc.text('- Correo electrónico: ' + correo, 20, 50);
+        doc.text('- Teléfono: ' + tel, 20, 60);
+        doc.text('- Dirección: ' + direccion, 20, 70);
+
+        doc.text('', 20, 100); // Espacio en blanco
+
+        doc.setFontSize(22);
+        doc.text('Motivo del contacto', 20, 140);
+        doc.line(20, 145, 190, 145); // Línea horizontal debajo del título
+
+        doc.setFontSize(16);
+        if (reclamo === "No nos contacta por un reclamo de un producto" && comentario === "No ha dejado un comentario") {
+          doc.text("El usuario no especifico motivo de contacto", 20, 160);
+        } else if (reclamo === "No nos contacta por un reclamo de un producto" && comentario != "No ha dejado un comentario") {
+          doc.text("", 20, 160);
+          for (var i = 0; i < lines.length; i++) {
+            doc.text(lines[i], 20, 160 + (i * 10));
+          }
+        } else {
+          doc.text("- " + reclamo, 20, 160);
+          if (reclamo === 'Nos contacta por un reclamo de un producto') {
+            doc.text('- Producto: ' + producto, 20, 170);
+          }
+          if (comentario === "No ha dejado un comentario") {
+            doc.text("El usuario no añadio detalles", 20, 180)
+          } else {
+            doc.text('- Ademas nos añade que: ', 20, 180)
+            for (var i = 0; i < lines.length; i++) {
+              doc.text(lines[i], 20, 190 + (i * 10));
+            }
+          };
+        }
+
+        doc.save('Contacto.pdf');
+
       });
     });
-
-
-
-
-
 
 
 
